@@ -36,7 +36,25 @@
     <xs:element name="excluirUsuarioRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="userid" type="xs:long"/>
+                <xs:element name="codUsuario" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="inserirAcessoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codUsuario" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    
+    <xs:element name="inserirAcessoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="codUsuario" type="xs:long"/>
+                <xs:element name="dataHora" type="xs:dateTime"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -49,7 +67,7 @@
         </xs:complexType>
     </xs:element>
     
-    <xs:element name="getTodosUsuariosRequest" />
+    <xs:element name="todosUsuarioRequest" />
    
    <xs:element name="todosUsuarioResponse">
         <xs:complexType>

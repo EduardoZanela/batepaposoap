@@ -37,8 +37,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "codUsuario"
 })
-@XmlRootElement(name = "excluirUsuarioRequest")
-public class ExcluirUsuarioRequest {
+@XmlRootElement(name = "inserirAcessoRequest")
+public class InserirAcessoRequest {
 
     protected long codUsuario;
 
