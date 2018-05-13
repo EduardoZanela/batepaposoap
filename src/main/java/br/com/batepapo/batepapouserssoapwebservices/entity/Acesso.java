@@ -3,14 +3,17 @@ package br.com.batepapo.batepapouserssoapwebservices.entity;
 import java.io.Serializable;
 import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="acesso", uniqueConstraints= @UniqueConstraint(columnNames= {"codUsuario", "dataHora"}, name="pk_acesso"))
+@Table(name="acesso", uniqueConstraints= @UniqueConstraint(columnNames= {"codusuario", "datahora"}, name="pk_acesso"))
 @IdClass(AcessoKey.class)
 public class Acesso implements Serializable{
 
@@ -20,14 +23,16 @@ public class Acesso implements Serializable{
 		
 	}
 	public Acesso(long codUsuario, Calendar dataHora) {
-		super();
 		this.codUsuario = codUsuario;
 		this.dataHora = dataHora;
 	}
 
 	@Id
+	@Column(name="codusuario")
 	private long codUsuario;
 	@Id
+	@Column(name="datahora")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataHora;
 	
 	public long getCodUsuario() {

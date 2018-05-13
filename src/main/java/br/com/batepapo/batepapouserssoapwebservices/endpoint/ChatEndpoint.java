@@ -13,30 +13,34 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import br.com.batepapo.batepapouserssoapwebservices.dto.InserirAcessoRequest;
-import br.com.batepapo.batepapouserssoapwebservices.dto.InserirAcessoResponse;
-import br.com.batepapo.batepapouserssoapwebservices.entity.Acesso;
-import br.com.batepapo.batepapouserssoapwebservices.repository.AcessoRepository;
+import br.com.batepapo.batepapouserssoapwebservices.dto.InserirChatRequest;
+import br.com.batepapo.batepapouserssoapwebservices.dto.InserirChatResponse;
+import br.com.batepapo.batepapouserssoapwebservices.entity.Chat;
+import br.com.batepapo.batepapouserssoapwebservices.repository.ChatRepository;
 
 @Endpoint
-public class AcessoEndpoint {
+public class ChatEndpoint {
 	
 	private static final String NAMESPACE_URI = "http://www.batepapo.com/xml/users";
 	
 	@Autowired
-	private AcessoRepository repository;
+	private ChatRepository repository;
 	
-	@PayloadRoot(namespace=NAMESPACE_URI, localPart="inserirAcessoRequest")
+	@PayloadRoot(namespace=NAMESPACE_URI, localPart="inserirChatRequest")
 	@ResponsePayload()
-	public InserirAcessoResponse incluirAcesso(@RequestPayload InserirAcessoRequest request) throws DatatypeConfigurationException {
-		InserirAcessoResponse response = new InserirAcessoResponse();
-		repository.save(new Acesso(request.getCodUsuario(), Calendar.getInstance()));
+	public InserirChatResponse incluirChat(@RequestPayload InserirChatRequest request) throws DatatypeConfigurationException {
+		InserirChatResponse response = new InserirChatResponse();
+		repository.save(new Chat(request.getCodUsuario1(), request.getCodUsuario1(), request.getTopico(), Calendar.getInstance()));
 		GregorianCalendar gregorian = new GregorianCalendar();
 		gregorian.setTimeInMillis(Calendar.getInstance().getTimeInMillis());
 		XMLGregorianCalendar xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gregorian);
+		
 		response.setDataHora(xmlDate);
-		response.setCodUsuario(request.getCodUsuario());
+		response.setCodUsuario1(request.getCodUsuario1());
+		response.setCodUsuario2(request.getCodUsuario2());
+		response.setTopico(request.getTopico());
 		
 		return response;
 	}
 }
+

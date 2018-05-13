@@ -27,7 +27,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="codUsuario" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="codUsuario1" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="codUsuario2" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="topico" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *         &lt;element name="dataHora" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -39,31 +41,67 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "codUsuario",
+    "codUsuario1",
+    "codUsuario2",
+    "topico",
     "dataHora"
 })
-@XmlRootElement(name = "inserirAcessoResponse")
-public class InserirAcessoResponse {
+@XmlRootElement(name = "inserirChatResponse")
+public class InserirChatResponse {
 
-    protected long codUsuario;
+    protected long codUsuario1;
+    protected long codUsuario2;
+    protected long topico;
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar dataHora;
 
     /**
-     * Gets the value of the codUsuario property.
+     * Gets the value of the codUsuario1 property.
      * 
      */
-    public long getCodUsuario() {
-        return codUsuario;
+    public long getCodUsuario1() {
+        return codUsuario1;
     }
 
     /**
-     * Sets the value of the codUsuario property.
+     * Sets the value of the codUsuario1 property.
      * 
      */
-    public void setCodUsuario(long value) {
-        this.codUsuario = value;
+    public void setCodUsuario1(long value) {
+        this.codUsuario1 = value;
+    }
+
+    /**
+     * Gets the value of the codUsuario2 property.
+     * 
+     */
+    public long getCodUsuario2() {
+        return codUsuario2;
+    }
+
+    /**
+     * Sets the value of the codUsuario2 property.
+     * 
+     */
+    public void setCodUsuario2(long value) {
+        this.codUsuario2 = value;
+    }
+
+    /**
+     * Gets the value of the topico property.
+     * 
+     */
+    public long getTopico() {
+        return topico;
+    }
+
+    /**
+     * Sets the value of the topico property.
+     * 
+     */
+    public void setTopico(long value) {
+        this.topico = value;
     }
 
     /**
