@@ -40,6 +40,17 @@ public class Usuario implements Serializable{
 	@OneToMany(mappedBy = "codUsuario2", fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
     private List<Chat> chatUser2;
 	
+	public Usuario() {
+		
+	}
+	
+	public Usuario(long codUsuario, String nome, String iPaddress) {
+		super();
+		this.codUsuario = codUsuario;
+		this.nome = nome;
+		this.iPaddress = iPaddress;
+	}
+	
 	public long getCodUsuario() {
 		return codUsuario;
 	}

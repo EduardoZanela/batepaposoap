@@ -92,6 +92,22 @@
         </xs:complexType>
     </xs:element>
     
+    <xs:element name="pesquisaInteressadosTopicoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="idTopico" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="pesquisaInteressadosTopicoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="usuarios" type="tns:Usuario" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
     <xs:element name="inserirAcessoRequest">
         <xs:complexType>
             <xs:sequence>
