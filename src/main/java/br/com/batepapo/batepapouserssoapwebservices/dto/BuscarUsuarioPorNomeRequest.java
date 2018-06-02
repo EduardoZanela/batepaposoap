@@ -10,6 +10,7 @@ package br.com.batepapo.batepapouserssoapwebservices.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="codUsuario" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="nome" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "codUsuario"
+    "nome"
 })
-@XmlRootElement(name = "excluirUsuarioRequest")
-public class ExcluirUsuarioRequest {
+@XmlRootElement(name = "buscarUsuarioPorNomeRequest")
+public class BuscarUsuarioPorNomeRequest {
 
-    protected long codUsuario;
+    @XmlElement(required = true)
+    protected String nome;
 
     /**
-     * Gets the value of the codUsuario property.
+     * Gets the value of the nome property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public long getCodUsuario() {
-        return codUsuario;
+    public String getNome() {
+        return nome;
     }
 
     /**
-     * Sets the value of the codUsuario property.
+     * Sets the value of the nome property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setCodUsuario(long value) {
-        this.codUsuario = value;
+    public void setNome(String value) {
+        this.nome = value;
     }
 
 }

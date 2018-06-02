@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="codUsuario" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="status" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +35,27 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "codUsuario"
+    "status"
 })
-@XmlRootElement(name = "excluirUsuarioRequest")
-public class ExcluirUsuarioRequest {
+@XmlRootElement(name = "loginTopicosInteresseResponse")
+public class LoginTopicosInteresseResponse {
 
-    protected long codUsuario;
+    protected boolean status;
 
     /**
-     * Gets the value of the codUsuario property.
+     * Gets the value of the status property.
      * 
      */
-    public long getCodUsuario() {
-        return codUsuario;
+    public boolean isStatus() {
+        return status;
     }
 
     /**
-     * Sets the value of the codUsuario property.
+     * Sets the value of the status property.
      * 
      */
-    public void setCodUsuario(long value) {
-        this.codUsuario = value;
+    public void setStatus(boolean value) {
+        this.status = value;
     }
 
 }
